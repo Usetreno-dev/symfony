@@ -13,7 +13,24 @@ namespace Symfony\Component\HttpFoundation\Session\Storage\Handler;
 
 // Adds SessionHandler functionality if available.
 // @see http://php.net/sessionhandler
-if (\PHP_VERSION_ID >= 50400) {
+if (\PHP_VERSION_ID >= 70000) {
+    class NativeSessionHandler extends \SessionHandler
+    {
+        public function write($id, $data)
+        {
+            parent::write($id, $data);
+
+            return true;
+        }
+
+        public function close()
+        {
+            parent::close();
+
+            return true;
+        }
+    }
+} elseif (\PHP_VERSION_ID >= 50400) {
     class NativeSessionHandler extends \SessionHandler
     {
     }
