@@ -12,10 +12,10 @@
 namespace Symfony\Component\Ldap\Exception;
 
 /**
- * LdapException is throw if php ldap module is not loaded.
+ * NotBoundException is thrown if the connection with the LDAP server is not yet bound.
  *
- * @author Grégoire Pineau <lyrixx@lyrixx.info>
+ * @author Bob van de Vijver <bobvandevijver@hotmail.com>
  */
-class LdapException extends \RuntimeException implements ExceptionInterface
+class NotBoundException extends \RuntimeException implements ExceptionInterface
 {
 }
